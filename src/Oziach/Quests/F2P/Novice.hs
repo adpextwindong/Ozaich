@@ -1,13 +1,19 @@
-module Oziach.Quests.Novice where
+module Oziach.Quests.F2P.Novice where
 
 import Oziach.Types
+    ( Quest(..),
+      Membership(FreeToPlay), 
+      QClassification(Novice),
+      Skill(..),
+      Reward(..))
+
 import Oziach.Items ( nameCountToReqMap )
 
 import qualified Data.Map as M
 import qualified Data.Set as S
 
-noviceQuests :: [Quest]
-noviceQuests = [cooksAssistant]
+noviceF2PQuests :: [Quest]
+noviceF2PQuests = [cooksAssistant]
 
 cooksAssistant :: Quest
 cooksAssistant = Quest {

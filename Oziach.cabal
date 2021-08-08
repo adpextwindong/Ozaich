@@ -22,8 +22,9 @@ executable Oziach
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:   base,
-                     Oziach
+    build-depends:   base
+                    ,Oziach
+                    ,containers >= 0.5
     hs-source-dirs:   app
     default-language: Haskell2010
 
@@ -35,7 +36,9 @@ library
        ,Oziach.Types
        ,Oziach.Kinds
        ,Oziach.Quests
-       ,Oziach.Quests.Novice
+       ,Oziach.Quests.F2P.Novice
+       ,Oziach.Quests.F2P.Intermediate
+       ,Oziach.Quests.F2P.Experienced
        ,Oziach.Items
     build-depends:
         base >= 4.6 && < 5

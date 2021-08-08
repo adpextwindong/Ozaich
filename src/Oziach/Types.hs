@@ -74,6 +74,7 @@ genConstraints :: Quest -> S.Set Constraint --TODO make this recursive in quest 
 genConstraints q = S.unions [levelConstraints, itemConstraints, questPointConstraints]
     where levelConstraints = S.fromList . fmap (uncurry LevelConstraint) $ M.toList (levels q)
           itemConstraints = S.fromList . fmap (uncurry ItemConstraint) $ M.toList (itemsRequired q)
+          --TODO refactor this, kind of code smelly already
           questPointConstraints = if questPoints q == 0
                                   then do
                                     let maxImplicit = maxQPImplicit q
