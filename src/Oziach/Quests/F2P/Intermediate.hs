@@ -32,7 +32,8 @@ theKnightsSword = Quest {
                    ,reward = Reward {
                        questPointsReward = 1
                       ,skillPointsReward = M.fromList [(Smithing, 12725)]
-                      ,itemsReward = M.fromList [(667, 1)] --Bluerite Sword
+                      ,itemsReward = M.fromList [(667, 1)] --Blurite Sword
+                      --TODO this itemsReward handling on the wiki facing side is hard to use. Make it use names.
                    }
                  }
 
