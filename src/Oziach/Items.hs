@@ -8,6 +8,9 @@ import Data.Bifunctor
 --TODO figure out a progamatic way to generate it instead of this bullshit
 --TODO assert all id's aren't being reused. It might just be easier to have an sql db
 
+--TODO parse the items-summary.json
+--TODO assert that all the items in the quest file match the cannonicalItems
+
 type Item = Int
 
 grabCannonicalE :: String -> Item
