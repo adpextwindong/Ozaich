@@ -53,6 +53,9 @@ data Quest = Quest {
              } deriving (Show, Eq, Ord)
 
 
+--TODO another consideration is implicit ironman constraints.
+--Knights sword has a Cooking level 10 constraint for ironmen
+
 --TODO we might need to split ItemConstraints into HardItemConstraints and RecommendedItemConstraints
 --There are items we fetch during other quests typically that we don't want to backtrack for such as Goutweed
 data Constraint = LevelConstraint Skill Level
