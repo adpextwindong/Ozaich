@@ -32,6 +32,9 @@ data Quest = Quest {
                --Strict to force grabCannonicalE to error if nonexistant item
              } deriving (Show, Eq, Ord)
 
+
+--TODO we might need to split ItemConstraints into HardItemConstraints and RecommendedItemConstraints
+--There are items we fetch during other quests typically that we don't want to backtrack for such as Goutweed
 data Constraint = LevelConstraint Skill Level
                 | ItemConstraint Item Int
                 | QuestReqConstraint Int
@@ -49,5 +52,9 @@ genConstraints q = S.unions [levelConstraints, itemConstraints, questPointConstr
     where levelConstraints = S.fromList . fmap (uncurry LevelConstraint) $ M.toList (levels q)
           itemConstraints = S.fromList . fmap (uncurry ItemConstraint) $ M.toList (itemsRequired q)
           questPointConstraints = if questPoints q == 0
-                                  then S.singleton $ QuestPointConstraintImplicit (maxQPImplicit q)
+                                  then do
+                                    let maxImplicit = maxQPImplicit q
+                                    if maxImplicit == 0
+                                    then S.empty
+                                    else S.singleton $ QuestPointConstraintImplicit maxImplicit
                                   else S.singleton $ QuestPointConstraintExplicit (questPoints q)
