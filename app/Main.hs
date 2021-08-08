@@ -5,6 +5,7 @@ module Main where
 import qualified Data.Map as M
 import qualified Data.Set as S
 import Data.Bifunctor
+import Control.Applicative
 
 --TODO find a canonical list for item id's
 --
@@ -16,8 +17,11 @@ data Skill = Attack | Strength | Defence | Range | Prayer | Magic
            | Runecraft | Construction | Hitpoints | Agility | Herblore
            | Thieving | Crafting | Fletching | Slayer | Hunter
            | Mining | Smithing | Fishing | Cooking | Firemaking | Woodcutting | Farming
-           deriving (Show, Eq, Ord)
+           deriving (Show, Eq, Ord, Enum, Bounded)
 
+--Enum and Bounded are for the list comprehension
+baseSkills :: M.Map Skill Integer
+baseSkills = M.fromList $ liftA2 (,) [Attack .. Farming] [1]
 
 --TODO We might need a datakind for Level to express boostable and unboostable requirements
 type LevelReqs = M.Map Skill Level
