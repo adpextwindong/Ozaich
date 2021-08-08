@@ -2,6 +2,19 @@
 
 A repo for exploration into OSRS quest planning.
 
+## The core bit so far
+```haskell
+data Constraint = LevelConstraint Skill Level
+                | ItemConstraint Item Int
+                | QuestReqConstraint Int
+                | QuestPointConstraintExplicit Int
+                | QuestPointConstraintImplicit Int
+```
+
+While I figure out a more declarative way to query quest relations and handle implicit/explicit details this is the core type.
+
+genConstraints will produce a set of these given a quest. It will recursively do that on quest reqs once I figure out the Quest type more. The Quest type as of now is convienent for porting from the Wiki into an expression.
+
 ## Example output for now
 
 ```haskell
