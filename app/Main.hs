@@ -30,8 +30,9 @@ data Quest = Quest {
                 name :: String
                ,levels :: LevelReqs
                ,parents :: S.Set Quest
-               ,qp_constraint :: Int --0 or Maybe?
+               ,qp_constraint :: Int --0 indicates no qp constraint
                ,items_required :: !(M.Map Item Int) --Item Count
+               --Strict to force grabCannonicalE to error if nonexistant item
              } deriving (Show, Eq, Ord)
 
 cooksAssistant = Quest {
@@ -49,6 +50,8 @@ grabCannonicalE :: String -> Item
 grabCannonicalE s = cannonical_items M.! s
 
 nameCountToReqMap = M.fromList . fmap (first grabCannonicalE)
+
+--What if we made an intermediate constraint type
 
 --TODO layout RFD expression
 --TODO Heroes Quest expression
