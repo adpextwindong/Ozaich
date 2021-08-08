@@ -31,7 +31,8 @@ library
     hs-source-dirs:
         src
     exposed-modules:
-        Oziach.Types
+        Oziach
+       ,Oziach.Types
        ,Oziach.Quests
        ,Oziach.Quests.Novice
        ,Oziach.Items
