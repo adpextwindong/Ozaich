@@ -23,7 +23,13 @@ baseSkills = M.fromList $ liftA2 (,) [Attack .. Farming] [1]
 --TODO We might need a datakind for Level to express boostable and unboostable requirements
 type LevelReqs = M.Map Skill Level
 
-data QType = FreeToPlay | Members
+data Reward = Reward {
+                questPointsReward :: Int
+               ,skillPointsReward :: M.Map Skill Experience
+               ,itemsReward :: M.Map Item Int
+              } deriving (Show, Eq, Ord)
+
+data Membership = FreeToPlay | PayToPlay
     deriving (Show, Eq, Ord)
 
 data QClassification = Novice
@@ -36,13 +42,14 @@ data QClassification = Novice
 
 data Quest = Quest {
                 name :: String
-               ,qt :: QType --TODO better name
+               ,qt :: Membership --TODO better name
                ,classification :: QClassification
                ,levels :: LevelReqs
                ,parents :: S.Set Quest
                ,questPoints :: Int --0 indicates no qp constraint
                ,itemsRequired :: !(M.Map Item Int) --Item Count
                --Strict to force grabCannonicalE to error if nonexistant item
+               ,reward :: Reward
              } deriving (Show, Eq, Ord)
 
 

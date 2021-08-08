@@ -1,22 +1,21 @@
-module Oziach.Quests where
+module Oziach.Quests
+  ( quests,
+    module Oziach.Quests.Novice)
+ where
 
-import Oziach.Types
+import Oziach.Types ( Quest )
+import Oziach.Quests.Novice
 import Oziach.Items
 
 import qualified Data.Map as M
 import qualified Data.Set as S
 --TODO test with hspec, DEEPSEQ all quests to make sure the items don't blowup
 
-quests = [cooksAssistant]
+intermediateQuests = [] --TODO
+experiencedQuests = [] --TODO
+masterQuests = [] --TODO
+grandmasterQuests = [] --TODO
+specialQuests = [] --TODO 
 
-novice_quests = [cooksAssistant]
-
-cooksAssistant = Quest {
-                    name = "Cook's Assistant"
-                   ,qt = FreeToPlay
-                   ,classification = Novice
-                   ,levels = M.empty
-                   ,parents = S.empty
-                   ,questPoints = 0
-                   ,itemsRequired = nameCountToReqMap [("Pot",1),("Bucket",1),("Bucket of Milk",1), ("Egg", 1), ("Pot of flour", 1)]
-                 }
+quests :: [Quest]
+quests = concat [noviceQuests, intermediateQuests, experiencedQuests, masterQuests, specialQuests]

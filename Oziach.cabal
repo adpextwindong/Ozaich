@@ -41,6 +41,7 @@ library
     exposed-modules:
         Oziach.Types
        ,Oziach.Quests
+       ,Oziach.Quests.Novice
        ,Oziach.Items
     build-depends:
         base >= 4.6
