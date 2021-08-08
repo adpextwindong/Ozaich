@@ -33,6 +33,7 @@ library
     exposed-modules:
         Oziach
        ,Oziach.Types
+       ,Oziach.Kinds
        ,Oziach.Quests
        ,Oziach.Quests.Novice
        ,Oziach.Items
