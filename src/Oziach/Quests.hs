@@ -13,8 +13,10 @@ novice_quests = [cooksAssistant]
 
 cooksAssistant = Quest {
                     name = "Cook's Assistant"
-                   ,levels = M.fromList []
-                   ,parents = S.fromList []
+                   ,qt = FreeToPlay
+                   ,classification = Novice
+                   ,levels = M.empty
+                   ,parents = S.empty
                    ,questPoints = 0
                    ,itemsRequired = nameCountToReqMap [("Pot",1),("Bucket",1),("Bucket of Milk",1), ("Egg", 1), ("Pot of flour", 1)]
                  }

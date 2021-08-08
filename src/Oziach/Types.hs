@@ -23,8 +23,21 @@ baseSkills = M.fromList $ liftA2 (,) [Attack .. Farming] [1]
 --TODO We might need a datakind for Level to express boostable and unboostable requirements
 type LevelReqs = M.Map Skill Level
 
+data QType = FreeToPlay | Members
+    deriving (Show, Eq, Ord)
+
+data QClassification = Novice
+                     | Intermediate
+                     | Experienced
+                     | Master
+                     | Grandmaster
+                     | Special
+                     deriving (Show, Eq, Ord)
+
 data Quest = Quest {
                 name :: String
+               ,qt :: QType --TODO better name
+               ,classification :: QClassification
                ,levels :: LevelReqs
                ,parents :: S.Set Quest
                ,questPoints :: Int --0 indicates no qp constraint
