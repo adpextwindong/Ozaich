@@ -41,3 +41,5 @@ fromList [LevelConstraint Mining 10,ItemConstraint 301 1,ItemConstraint 668 1,It
 - Handling boostable/unboostable constraints
 - Handling "Obtainable during quest" and "Recommended items/levels"
 - Handling ironmen constraints
+- Modeling choice in quests such as DS1 (10k or telegrab) /MM1 (100k or do puzzle) payoffs
+- Some quests specify ANY for items such as pickaxe. We could probably just have a set of item id's to satisfy this but the semantics should allow for that.
