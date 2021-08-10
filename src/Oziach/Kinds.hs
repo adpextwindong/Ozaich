@@ -46,3 +46,17 @@ hxs = HCons tz $ HCons ts HNil
 data HList :: [*] -> * where
     HNil :: HList '[]
     HCons :: a -> HList t -> HList (a ': t)
+
+--Wait why don't we just paramaterize a GADT over game mode typefamily/type operator..
+
+data ConstraintFoo a = CFLevel
+                     | CFItem
+                     -- | (OrGameMode a, OrGameMode b) => CFAnd (ConstraintFoo a) (ConstraintFoo b)
+                     --Sandy Maguire noted that GADT syntax is sugar over a type equality constraint...
+
+type MainConstraint = ConstraintFoo Main
+type IronConstraint = ConstraintFoo Ironman
+t_x = CFLevel :: MainConstraint
+t_y = CFItem :: IronConstraint
+
+--t_z = CFAnd t_x t_y
