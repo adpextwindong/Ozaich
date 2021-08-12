@@ -12,5 +12,13 @@ A* - 1968 - is an approach that informs using heuristics. Maintains a pqueue bas
 
 For example in a 2D scenario we can approximate a heuristic with euclidean distance in the 2d grid. While it doesn't correspond to the graph traversal its a cheap heuristic.
 
+```haskell
+solve :: SearchEngine -> [Effect a] -> [Test] -> Problem (SolveResult a)
+```
+
+25:00 - Your effects need to return metadata on each step solving the problem. This is because SolveResult takes a type which is returned.
+
+TODO what if we modelled certain quest puzzles first??
+
 
 # [Solving Planning Problems with Fast Downward and Haskell](https://ocharles.org.uk/blog/posts/2018-12-25-fast-downward.html)
