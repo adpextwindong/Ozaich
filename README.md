@@ -43,3 +43,9 @@ fromList [LevelConstraint Mining 10,ItemConstraint 301 1,ItemConstraint 668 1,It
 - Handling ironmen constraints
 - Modeling choice in quests such as DS1 (10k or telegrab) /MM1 (100k or do puzzle) payoffs
 - Some quests specify ANY for items such as pickaxe. We could probably just have a set of item id's to satisfy this but the semantics should allow for that.
+
+## Extra Ideas and Inspo
+
+The original idea for this library was spawned by the [fast-downward Haskell bindings](https://github.com/circuithub/fast-downward). Particularlly by this talk, ["MuniHac 2019: Fast Downward: Solving Declarative Planning problems in Haskell"](https://www.youtube.com/watch?v=riugQmHx0K0) by [Ollie Charles](https://github.com/ocharles). Getting to an integrable point with that library is still far off.
+
+The item id information is from [osrsbox-db](https://github.com/osrsbox/osrsbox-db).
