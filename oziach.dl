@@ -1,0 +1,9 @@
+.decl questReq(x : symbol, y : symbol)
+.input questReq(filename="questReq.facts", delimiter=",")
+
+.decl questDependency(x : symbol, y : symbol)
+.output questDependency
+
+questDependency(x, y) :- questReq(x, y).
+questDependency(x, z) :- questReq(x, y),
+                         questReq(y, z).
